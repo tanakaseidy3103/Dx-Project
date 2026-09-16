@@ -1,8 +1,106 @@
 # AI Operations Copilot
 
-AI x Data Engineering x DX x Power BI x Machine Learning を組み合わせた、意思決定支援のポートフォリオプロジェクトです。
+> **Status: In development / MVP prototype**
 
-企業データを模したSynthetic DataをPythonで生成・検証し、PostgreSQL、分析、異常検知、売上予測、Power BI、Evidence-first AI Insightへつなげます。実在企業のデータや機密情報は使用しません。
+AI x Data Engineering x DX x Power BI x Machine Learning を組み合わせた、業務データに基づく意思決定支援プロジェクトです。
+
+これは完成済みのWebサイトではありません。現在は、Synthetic Dataを作り、Power BIで最初のKPIを表示する段階です。今後、PostgreSQL、異常検知、売上予測、Evidence-first AI Insightを段階的に接続します。
+
+## What Is This?
+
+企業の店舗・商品・顧客・売上・在庫データを統合し、次の質問に答えることを目指します。
+
+- どの店舗の売上が高い、または低下しているか
+- どの商品に在庫不足のリスクがあるか
+- 売上の異常や将来のリスクはどこにあるか
+- 担当者が最初に確認すべき問題は何か
+
+最終的には、Pythonで分析した根拠をPower BIとAI Operations Copilotへ渡します。AIは確認できた事実と推測を分け、原因を根拠なしに断定しません。
+
+## Current Development Stage
+
+現在は **Phase 4〜8の初期部分**です。
+
+- Synthetic Dataを生成済み
+- Power BI用CSVを作成済み
+- Power BIで `sales.csv` を読み込み、`Total Sales` の最初のカードを作成済み
+- DAX、データ辞書、カレンダーテーブルの設計を文書化済み
+- Python側にETL、品質検証、異常検知、予測、Insight生成のMVPコードを実装済み
+- PostgreSQLのDDLとDocker Composeを準備済み
+
+まだ未完成の部分:
+
+- Power BIの5ページ全体
+- Power BIとPostgreSQLの接続
+- AI画面とローカルLLMの接続
+- スクリーンショットと実測評価レポート
+- 本番運用、認証、Azureへのデプロイ
+
+## Where Does the Power BI Number Come From?
+
+Power BIの最初のカードは、次のファイルを読み込んでいます。
+
+```text
+data/generated/powerbi/sales.csv
+```
+
+このファイルはPythonのSynthetic Data Generatorが作成した架空の売上明細です。実在企業のデータ、個人情報、機密情報は使用していません。
+
+`sales.csv` には次の列があります。
+
+| 列 | 意味 |
+| --- | --- |
+| `sale_id` | 売上明細のID |
+| `sale_date` | 売上日 |
+| `store_id` | 店舗ID |
+| `product_id` | 商品ID |
+| `customer_id` | 架空の顧客ID |
+| `quantity` | 販売数量 |
+| `unit_price` | 1個あたりの価格 |
+| `discount` | 割引率。`0.05`は5% |
+
+## How Is Total Sales Calculated?
+
+Power BIで作成した `Total Sales` Measureは、`sales.csv` の各行について次の計算を行い、全行を合計します。
+
+```text
+Sales Amount = quantity * unit_price * (1 - discount)
+```
+
+DAXでは次のように書きます。
+
+```DAX
+Total Sales =
+SUMX(
+	sales,
+	sales[quantity] * sales[unit_price] * (1 - sales[discount])
+)
+```
+
+例:
+
+```text
+quantity   = 2
+unit_price = 1,000
+discount   = 0.05
+
+2 * 1,000 * (1 - 0.05) = 1,900
+```
+
+つまり、Power BIに表示される `71.92 Mi` は、現在読み込まれているSynthetic `sales.csv` の全売上明細をこの式で合計した値です。実在企業の売上ではありません。
+
+`data/generated/powerbi` のCSVは、ポルトガル語の地域設定に合わせて `;` 区切り、`,` 小数点で出力しています。元データの生成条件はseed `42`、90日間、8店舗、40商品、300顧客です。
+
+## First Power BI Prototype
+
+現在のPower BIレポートは、最初の動作確認として以下を作成しています。
+
+- `Total Sales` カード
+- `sales.csv` を元にした売上合計
+
+画面が白く見える部分が残っているのは、まだ全ページを作成していないためです。これは未完成のMVPであり、エラーではありません。次に `Customers`、`Gross Profit`、`Inventory Units` のカードと店舗別売上グラフを追加します。
+
+Power BIの操作手順は [POWER_BI_QUICKSTART.md](POWER_BI_QUICKSTART.md)、DAXの一覧は [powerbi/MEASURES.md](powerbi/MEASURES.md) を参照してください。
 
 ## Project Design
 
