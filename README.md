@@ -8,6 +8,8 @@ AI x Data Engineering x DX x Power BI x Machine Learning を組み合わせた�
 
 実装前の要件、MVP範囲、データモデル、アーキテクチャ、ロードマップ、Power BI設計は [PROJECT_DESIGN.md](PROJECT_DESIGN.md) にまとめています。
 
+Power BIを初めて試す場合は [POWER_BI_QUICKSTART.md](POWER_BI_QUICKSTART.md) を参照してください。CSVを読み込んで、最初のExecutive Overviewを作成する手順を説明しています。
+
 ## Current Status
 
 - Synthetic Data: 実装済み。seedを指定した再現可能な店舗、商品、顧客、売上、在庫データ
