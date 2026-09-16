@@ -8,6 +8,8 @@ AI x Data Engineering x DX x Power BI x Machine Learning を組み合わせた�
 
 実装前の要件、MVP範囲、データモデル、アーキテクチャ、ロードマップ、Power BI設計は [PROJECT_DESIGN.md](PROJECT_DESIGN.md) にまとめています。
 
+日本企業の採用担当者向けのプロジェクト説明、履歴書用の記載例、面接で説明するポイントは [PORTFOLIO_JP.md](PORTFOLIO_JP.md) にまとめています。
+
 Power BIを初めて試す場合は [POWER_BI_QUICKSTART.md](POWER_BI_QUICKSTART.md) を参照してください。CSVを読み込んで、最初のExecutive Overviewを作成する手順を説明しています。
 
 CSVの各列とPower BIのリレーションは [DATA_DICTIONARY.md](DATA_DICTIONARY.md) にまとめています。
