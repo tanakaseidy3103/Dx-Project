@@ -94,4 +94,4 @@ DIVIDE(
 
 ## Nota sobre datas
 
-`DATEADD` funciona melhor quando o modelo possui uma tabela calendário contínua relacionada a `sales[sale_date]`. Na primeira versão, a medida usa a coluna de data da tabela `sales`; a tabela calendário será adicionada em uma etapa posterior do modelo Power BI.
+Para crescimento mensal, crie a tabela calendário conforme [CALENDAR.md](CALENDAR.md) e use a medida `Sales Previous Month` baseada em `Calendar[Date]`.
