@@ -10,6 +10,8 @@ AI x Data Engineering x DX x Power BI x Machine Learning を組み合わせた�
 
 Power BIを初めて試す場合は [POWER_BI_QUICKSTART.md](POWER_BI_QUICKSTART.md) を参照してください。CSVを読み込んで、最初のExecutive Overviewを作成する手順を説明しています。
 
+CSVの各列とPower BIのリレーションは [DATA_DICTIONARY.md](DATA_DICTIONARY.md) にまとめています。
+
 ## Current Status
 
 - Synthetic Data: 実装済み。seedを指定した再現可能な店舗、商品、顧客、売上、在庫データ
