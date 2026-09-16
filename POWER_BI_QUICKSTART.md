@@ -4,14 +4,14 @@ Este guia serve para o primeiro teste visual do AI Operations Copilot. Nesta eta
 
 ## 1. Arquivos para importar
 
-Use os arquivos desta pasta:
+Use os arquivos da subpasta `powerbi`, preparados para a configuração regional em português:
 
 ```text
-data/generated/stores.csv
-data/generated/products.csv
-data/generated/customers.csv
-data/generated/sales.csv
-data/generated/inventory.csv
+data/generated/powerbi/stores.csv
+data/generated/powerbi/products.csv
+data/generated/powerbi/customers.csv
+data/generated/powerbi/sales.csv
+data/generated/powerbi/inventory.csv
 ```
 
 Esses dados são fictícios. Eles representam lojas, produtos, clientes, vendas e estoque.
@@ -28,8 +28,10 @@ No Power BI Desktop:
 Use o caminho completo da pasta atual:
 
 ```text
-C:\Users\eduardo\OneDrive - nkz.ac.jp\デスクトップ\DX Project\data\generated
+C:\Users\eduardo\OneDrive - nkz.ac.jp\デスクトップ\DX Project\data\generated\powerbi
 ```
+
+Esses arquivos usam `;` como separador e `,` como separador decimal. Assim, o Power BI em português deve reconhecer `3461,36` como número decimal e `0,05` como desconto sem conversão manual.
 
 ## 3. Criar relacionamentos
 

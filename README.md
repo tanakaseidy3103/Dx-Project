@@ -63,7 +63,7 @@ $env:PYTHONPATH = "src"
 python scripts/generate_synthetic_data.py
 ```
 
-生成されるCSVは `data/generated/` に保存されます。このディレクトリはGit管理対象外です。デフォルトではseed `42`、90日間、8店舗、40商品、300顧客を使用します。売上には曜日・季節性・店舗差・割引を、在庫には補充・販売数量・再発注点を反映します。
+生成されるCSVは `data/generated/` に保存され、Power BI用のファイルは `data/generated/powerbi/` に保存されます。このディレクトリはGit管理対象外です。Power BI用ファイルはポルトガル語の地域設定向けに `;` 区切り、`,` 小数点で出力します。デフォルトではseed `42`、90日間、8店舗、40商品、300顧客を使用します。売上には曜日・季節性・店舗差・割引を、在庫には補充・販売数量・再発注点を反映します。
 
 ## Run Tests
 
