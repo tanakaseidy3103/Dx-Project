@@ -33,7 +33,7 @@ AI x Data Engineering x DX x Power BI x Machine Learning を組み合わせた�
 - Power BIの5ページ全体
 - Power BIとPostgreSQLの接続
 - AI画面とローカルLLMの接続
-- スクリーンショットと実測評価レポート
+- 追加ページのスクリーンショットと実測評価レポート
 - 本番運用、認証、Azureへのデプロイ
 
 ## Where Does the Power BI Number Come From?
@@ -101,6 +101,12 @@ discount   = 0.05
 画面が白く見える部分が残っているのは、まだ全ページを作成していないためです。これは未完成のMVPであり、エラーではありません。次に `Customers`、`Gross Profit`、`Inventory Units` のカードと店舗別売上グラフを追加します。
 
 Power BIの操作手順は [POWER_BI_QUICKSTART.md](POWER_BI_QUICKSTART.md)、DAXの一覧は [powerbi/MEASURES.md](powerbi/MEASURES.md) を参照してください。
+
+### Executive Overview prototype
+
+最初のPower BI画面では、Synthetic `sales.csv` から計算した `Total Sales` をカードで表示しています。これはMVPの進捗を示す実際のスクリーンショットです。今後、顧客数、粗利、在庫、店舗別分析を追加します。
+
+![Executive Overview prototype](docs/screenshots/01-executive-overview.png)
 
 ## Project Design
 
